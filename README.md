@@ -1,7 +1,7 @@
 
 # Device Reading API
 
-A set of simple Restful APIs, implemented in Ruby on Rails that processes device readings and stores them in memory via `Rails.cache`, can be easily swapped for Redis or other distributed cache.
+A set of simple RESTful APIs built with Ruby on Rails processes device readings and caches them using Rails.cache. The current configuration uses the in-memory store: `config.cache_store = :memory_store, { size: 64.megabytes }`.
 
 It supports three endpoints:
 
