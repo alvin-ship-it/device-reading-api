@@ -143,15 +143,14 @@ device-reading-api/
 
 ## 4. Improvements & Future Optimizations
 
-- I would have liked to include API versioning, but I chose to save time on configuration and focus on the core functionality. In a real-world scenario, I would definitely add it.
-- Better error handling. Right now, a single piece of bad data within the readings array causes the entire request to fail. The API could be more resilient by ignoring the problematic entry or handling it differently, instead of aborting entirely.
--   For high-traffic scenarios, I would consider using a distributed cache. I've allowed for easy swapping of the cache strategy via simple configuration. I did not use Redis or Memcached due to the external services constraint.
--   If devices can send large payloads, it might be best to compress, or batch incoming readings. At some point, the request may still reach a size limit, so we'd need to consider other options.
--   We could look into streaming or asynchronous processing for efficiency, which would need an architecture rewrite.
--   Logging should be definitely be explanded. Currently, we have none due to time constraints.
--   Setup APM middleware.
--   For a production service, we would want add authentication.
+- I would have liked to include API versioning, but I chose to save time on configuration and focus on the core functionality. In a real world scenario, I would definitely add it.
+- Improve error handling. Currently, a single piece of bad data within the readings array causes the entire request to fail. The API could be more resilient by either ignoring the problematic entry or handling it differently rather than aborting entirely.
+- For high-traffic scenarios, I would consider using a distributed cache. I have designed the system to allow easy swapping of the caching strategy via simple configuration. I did not use Redis or Memcached due to the external services constraint.
+- If devices can send large payloads, it might be best to compress or batch incoming readings. At some point, the request may still reach a size limit, so we would need to consider other options.
+- We could explore streaming or asynchronous processing for improved efficiency, although that would require an architecture rewrite.
+- Logging definitely should be expanded. Unfortunatle, we currently have none.
+- Set up APM middleware.
+- For a production service, we would want to add authentication.
 ---
 
 **Thank you! :)**
-```
